@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeDigIt Assignment</string>
+    <string name="splash_title">WeDigIt</string>
+    <string name="splash_info">Assignment</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
