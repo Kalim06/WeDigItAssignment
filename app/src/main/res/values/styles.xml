@@ -14,8 +14,7 @@
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="cursorColor">@color/white</item>
         <item name="hintEnabled">false</item>
-        <item name="errorTextAppearance">@font/lato_regular</item>
-        <item name="errorTextColor">@color/inputErrorColor</item>
+        <item name="errorTextAppearance">@style/errorTextAppearance</item>
     </style>
 
     <style name="inputEditText">
@@ -25,10 +24,10 @@
         <item name="android:textColorHint">@color/inputTextColor</item>
     </style>
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fontFamily="@font/poppins_regular"
-    android:hint="@string/email"
-    android:textColorHint="@color/inputTextColor"
-    android:textSize="12sp" />
+    <style name="errorTextAppearance">
+        <item name="android:textColor">@color/inputErrorColor</item>
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
 </resources>
