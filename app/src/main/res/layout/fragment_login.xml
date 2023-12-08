@@ -124,10 +124,12 @@
         android:paddingBottom="8dp"
         android:text="@string/login"
         android:textColor="@color/inputTextColor"
+        app:cornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
+    <!--  Spannable Text Set Programmatically  -->
     <TextView
         android:id="@+id/signUp"
         android:layout_width="match_parent"
@@ -140,6 +142,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
+    <!--  Spannable Text Set Programmatically  -->
     <TextView
         android:id="@+id/termsAndPrivacyText"
         android:layout_width="match_parent"

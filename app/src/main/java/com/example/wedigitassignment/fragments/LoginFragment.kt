@@ -38,7 +38,6 @@ class LoginFragment : Fragment() {
         binding.termsAndPrivacyText.appendText("Privacy Policy ", R.color.textBlueColor)
         binding.termsAndPrivacyText.appendText("and\n ", R.color.textColor)
         binding.termsAndPrivacyText.appendText("Terms of Service", R.color.textBlueColor)
-
     }
 
 }
