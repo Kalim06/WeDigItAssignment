@@ -2,7 +2,11 @@
     <string name="app_name">WeDigIt Assignment</string>
     <string name="splash_title">WeDigIt</string>
     <string name="splash_info">Assignment</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="back">Back</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOGIN</string>
 </resources>
