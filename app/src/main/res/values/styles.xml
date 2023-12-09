@@ -14,20 +14,37 @@
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="cursorColor">@color/white</item>
         <item name="hintEnabled">false</item>
+        <item name="helperTextTextColor">@color/secondaryTextColor</item>
         <item name="errorTextAppearance">@style/errorTextAppearance</item>
     </style>
 
     <style name="inputEditText">
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/poppins_regular</item>
-        <item name="android:textColor">@color/inputTextColor</item>
-        <item name="android:textColorHint">@color/inputTextColor</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textColorHint">@color/secondaryTextColor</item>
     </style>
 
     <style name="errorTextAppearance">
         <item name="android:textColor">@color/inputErrorColor</item>
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
+    <style name="customIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/navigationBg</item>
+    </style>
+
+
+    <style name="inactiveText" parent="TextAppearance.AppCompat.Title.Inverse">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="activeText" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:letterSpacing">0.02</item>
     </style>
 
 </resources>

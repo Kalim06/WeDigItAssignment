@@ -1,14 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="profile"
+            type="com.example.wedigitassignment.UserProfile" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/backgroundColor"
+        tools:context=".fragments.ProfileFragment"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="11dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/profileUserId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@{profile.userId}"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/profileReply"
+            app:layout_constraintEnd_toStartOf="@+id/profileReply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/profileReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@color/backgroundColor"
+            android:contentDescription="@string/reply"
+            android:src="@drawable/reply"
+            app:layout_constraintBottom_toBottomOf="@+id/profileSegment"
+            app:layout_constraintEnd_toStartOf="@+id/profileSegment"
+            app:layout_constraintTop_toTopOf="@+id/profileSegment" />
+
+        <ImageButton
+            android:id="@+id/profileSegment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/backgroundColor"
+            android:contentDescription="@string/segment"
+            android:src="@drawable/segment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/profilePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/profile_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileUserId"
+            app:userImage="@{profile}" />
+
+        <LinearLayout
+            android:id="@+id/profileEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edit_bg"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/profilePhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profilePhoto">
+
+            <ImageView
+                android:id="@+id/editIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/edit_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/edit"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@{profile.userName}"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilePhoto" />
+
+        <ImageView
+            android:id="@+id/userVerifiedImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/verified"
+            app:layout_constraintBottom_toBottomOf="@+id/userName"
+            app:layout_constraintStart_toEndOf="@+id/userName"
+            app:layout_constraintTop_toTopOf="@+id/userName" />
+
+        <TextView
+            android:id="@+id/userBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="6sp"
+            android:text="@{profile.userBio}"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userVerifiedImage" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileCountContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/count_bg"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userBio">
+
+            <ImageView
+                android:id="@+id/ratingIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:src="@drawable/star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ratingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:lineSpacingExtra="9sp"
+                android:textColor="@color/ratingColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingIcon"
+                app:layout_constraintStart_toEndOf="@+id/ratingIcon"
+                app:layout_constraintTop_toTopOf="@+id/ratingIcon"
+                app:layout_constraintVertical_bias="0.80"
+                app:userRating="@{profile}" />
+
+            <ImageView
+                android:id="@+id/playIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ratingCount"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/playCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:lineSpacingExtra="9sp"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/playIcon"
+                app:layout_constraintStart_toEndOf="@+id/playIcon"
+                app:layout_constraintTop_toTopOf="@+id/playIcon"
+                app:layout_constraintVertical_bias="0.80"
+                app:userPlays="@{profile}" />
+
+            <ImageView
+                android:id="@+id/friendsIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/people"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/playCount"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/friendsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:lineSpacingExtra="9sp"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/friendsIcon"
+                app:layout_constraintStart_toEndOf="@+id/friendsIcon"
+                app:layout_constraintTop_toTopOf="@+id/friendsIcon"
+                app:layout_constraintVertical_bias="0.80"
+                app:userFriends="@{profile}" />
+
+            <ImageView
+                android:id="@+id/songsIcons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:src="@drawable/headphones"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/songsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/songsIcons"
+                app:layout_constraintEnd_toStartOf="@+id/songsIcons"
+                app:layout_constraintTop_toTopOf="@+id/songsIcons"
+                app:layout_constraintVertical_bias="0.80"
+                app:userSongs="@{profile}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/profileTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/backgroundColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileCountContainer"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="bottom"
+            app:tabMode="auto"
+            app:tabSelectedTextAppearance="@style/activeText"
+            app:tabSelectedTextColor="@color/textColor"
+            app:tabTextAppearance="@style/inactiveText"
+            app:tabTextColor="@color/secondaryTextColor">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/jamsTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profileJams" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/privateTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/private_" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/linksTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/links" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profileRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/profileBottomNavigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileTab" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/profileBottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/navigationBg"
+            app:itemActiveIndicatorStyle="@style/customIndicator"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
