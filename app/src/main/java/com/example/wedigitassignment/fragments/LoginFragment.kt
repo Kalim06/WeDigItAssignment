@@ -9,8 +9,8 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.wedigitassignment.R
-import com.example.wedigitassignment.appendText
 import com.example.wedigitassignment.databinding.FragmentLoginBinding
+import com.example.wedigitassignment.utils.appendText
 
 class LoginFragment : Fragment() {
 
@@ -132,6 +132,7 @@ class LoginFragment : Fragment() {
 
             else -> {
                 binding.passwordLayout.error = null
+                binding.passwordLayout.helperText = null
                 return true
             }
         }

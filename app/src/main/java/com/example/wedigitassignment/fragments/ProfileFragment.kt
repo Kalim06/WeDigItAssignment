@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.wedigitassignment.Constants
-import com.example.wedigitassignment.ImageAdapter
+import com.example.wedigitassignment.utils.Constants
+import com.example.wedigitassignment.adapters.ImageAdapter
 import com.example.wedigitassignment.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

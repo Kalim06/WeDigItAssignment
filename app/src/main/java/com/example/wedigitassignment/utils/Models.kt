@@ -1,4 +1,4 @@
-package com.example.wedigitassignment
+package com.example.wedigitassignment.utils
 
 class UserProfile(
     var userId: String,

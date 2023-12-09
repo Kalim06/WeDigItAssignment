@@ -1,4 +1,4 @@
-package com.example.wedigitassignment
+package com.example.wedigitassignment.utils
 
 import android.widget.ImageView
 import android.widget.TextView

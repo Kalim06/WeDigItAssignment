@@ -1,4 +1,6 @@
-package com.example.wedigitassignment
+package com.example.wedigitassignment.utils
+
+import com.example.wedigitassignment.R
 
 object Constants {
     fun getUserJamsList(): List<ProfileJamsModel> {

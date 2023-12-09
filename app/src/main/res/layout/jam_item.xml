@@ -6,7 +6,7 @@
 
         <variable
             name="profileJams"
-            type="com.example.wedigitassignment.ProfileJamsModel" />
+            type="com.example.wedigitassignment.utils.ProfileJamsModel" />
     </data>
 
     <androidx.cardview.widget.CardView

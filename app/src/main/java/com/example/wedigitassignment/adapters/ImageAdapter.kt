@@ -1,9 +1,10 @@
-package com.example.wedigitassignment
+package com.example.wedigitassignment.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wedigitassignment.databinding.JamItemBinding
+import com.example.wedigitassignment.utils.ProfileJamsModel
 
 class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
