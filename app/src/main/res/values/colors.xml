@@ -4,15 +4,17 @@
     <color name="white">#FFFFFF</color>
     <color name="colorPrimary">#1C262C</color>
     <color name="colorSecondary">#86959E</color>
-    <color name="backgroundColor">#0D0D0D</color>
+    <color name="backgroundColor">#020202</color>
     <color name="textColor">#E7E7E7</color>
     <color name="inputBackgroundColor">#191919</color>
-    <color name="inputTextColor">#86959E</color>
+    <color name="secondaryTextColor">#86959E</color>
     <color name="inputErrorColor">#DC3545</color>
     <color name="textBlueColor">#5386E4</color>
-
+    <color name="navigationBg">#0D0D0D</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">
         @color/inputBackgroundColor
     </color>
+    <color name="ratingColor">#F4C95D</color>
+
 </resources>

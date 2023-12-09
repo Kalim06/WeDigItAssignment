@@ -1,9 +1,11 @@
 package com.example.wedigitassignment.fragments
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.wedigitassignment.R
@@ -45,38 +47,94 @@ class LoginFragment : Fragment() {
 
         //Login Btn ClickListener
         binding.loginBtn.setOnClickListener {
+
+
             if (isEmailValid() && isPasswordValid()) {
                 it.findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
+            } else {
+                isEmailValid()
+                isPasswordValid()
             }
         }
     }
 
     private fun emailFocusListener() {
-        binding.emailInput.setOnFocusChangeListener { _, _ ->
-            binding.emailLayout.error = null
+
+        binding.emailInput.doOnTextChanged { _, _, _, _ ->
+            isEmailValid()
+        }
+
+        binding.emailInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.emailLayout.error = null
+            }
         }
     }
 
     private fun passwordFocusListener() {
-        binding.passwordInput.setOnFocusChangeListener { _, _ ->
-            binding.passwordLayout.error = null
+
+        binding.passwordInput.doOnTextChanged { _, _, _, _ ->
+            isPasswordValid()
+        }
+
+        binding.passwordInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                val passwordError =
+                    "Minimum 8 Character Password\nMust Contain 1 Upper-case Character\nMust Contain 1 Numeric Character"
+                binding.passwordLayout.helperText = passwordError
+                binding.passwordLayout.error = null
+            } else {
+                binding.passwordLayout.helperText = null
+            }
         }
     }
 
     private fun isEmailValid(): Boolean {
-        if (binding.emailInput.text.isNullOrEmpty()) {
-            binding.emailLayout.error = "Required*"
-            return false
+
+        val emailText = binding.emailInput.text.toString()
+
+        val validEmail: Boolean = Patterns.EMAIL_ADDRESS.matcher(emailText).matches()
+
+        return if (!validEmail) {
+            binding.emailLayout.error = "Invalid Email Address"
+            false
+        } else {
+            binding.emailLayout.error = null
+            true
         }
-        return true
     }
 
     private fun isPasswordValid(): Boolean {
-        if (binding.passwordInput.text.isNullOrEmpty()) {
-            binding.passwordLayout.error = "Required*"
-            return false
+
+        val passwordText = binding.passwordInput.text.toString()
+
+        val passwordLengthError = "Minimum 8 Character Password"
+        val passwordUpperCaseError = "Must Contain 1 Upper-case Character"
+        val passwordNumericError = "Must Contain 1 Numeric Character"
+
+
+        when {
+
+            !passwordText.matches(".*[A-Z].*".toRegex()) -> {
+                binding.passwordLayout.error = passwordUpperCaseError
+                return false
+            }
+
+            !passwordText.matches(".*[0-9].*".toRegex()) -> {
+                binding.passwordLayout.error = passwordNumericError
+                return false
+            }
+
+            passwordText.length < 8 -> {
+                binding.passwordLayout.error = passwordLengthError
+                return false
+            }
+
+            else -> {
+                binding.passwordLayout.error = null
+                return true
+            }
         }
-        return true
     }
 
 }
